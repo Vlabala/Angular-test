@@ -1,15 +1,14 @@
 <div class="blog">
-  <h1>Блог</h1>
-  <div class="pagedata">
-    <div class="addHolder">
-      <app-button [class]="'add'" [clickEvent]="toggleModal">Добавить</app-button>
-      <div class="add" (click)="toggleModal()">Добавить</div>
+  <h1 class="blog__h1">Блог</h1>
+  <div class="blog__pagedata">
+    <div class="blog__addHolder">
+      <div class="blog__add" (click)="toggleModal()">Добавить</div>
     </div>
-    <div class="elementsHolder" >
-      <div class="element" *ngFor="let article of articlesList; index as i;">
-        <div class="title">{{article.title}}</div>
-        <div class="content">{{article.content}}</div>
-        <div class="goTo" (click)="onSelect(i)">Перейти</div>
+    <div class="blog__elementsHolder" >
+      <div class="blog__element" *ngFor="let article of articlesList; index as i;">
+        <div class="blog__title">{{article.title}}</div>
+        <div class="blog__content">{{article.content}}</div>
+        <div class="blog__goTo" (click)="onSelect(i)">Перейти</div>
       </div>
     </div>
   </div>
@@ -22,7 +21,7 @@
     <textarea rows="10" id="content" [(ngModel)]="newArticle.content" class="add_form__textarea"></textarea>
     <div class="add_form__buttons_holder">
       <div class="add_form__button cancel" (click)="toggleModal()">Отмена</div>
-      <div class="add_form__button save" (click)="addArticle(this.newArticle)">Сохранить</div>
+      <div class="add_form__button save" (click)="addArticle()">Сохранить</div>
     </div>
   </div>
 </app-modal>

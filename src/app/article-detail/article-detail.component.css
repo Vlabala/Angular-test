@@ -1,18 +1,21 @@
 .article_item{
+  display: flex;
   height: 90vh;
   padding: 50px 100px;
   box-sizing: border-box;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 15px;
 }
-.element .goTo {
-  background: #a19f9f;
-  width: 100%;
-  text-align: center;
-  border-radius: 10px;
+.article_item__h1 {
+  max-width: 100%;
+  overflow: auto;
 }
-.article_item__buttons{
+.article_item__buttons_head{
+  display: flex;
+  gap: 15px;
+}
+.article_item__buttons_bottom{
   display: flex;
   justify-content: flex-end;
   gap: 15px;

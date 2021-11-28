@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+
 import {ArticlesService} from "../articles.service";
 import {ArticleItem} from "../typescriptInterfaces";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-component',
@@ -11,27 +12,44 @@ import {Router} from "@angular/router";
 
 export class ListComponentComponent implements OnInit {
 
-  public articlesList: Array<any>;
+  public articlesList: Array<ArticleItem> = [];
   public showModal: boolean = false;
-  public newArticle: ArticleItem;
+  public newArticle: ArticleItem = { title: '', content: '' };
 
-  constructor(private _articlesService: ArticlesService, private _router : Router ) {
+  constructor(
+    private _articlesService: ArticlesService,
+    private _router : Router
+  ) {}
+
+  ngOnInit(): void {
+    this.articlesList = this._articlesService.getArticles();
   }
 
+  /**
+   * toggleModal показывает/скрывает модал с добавлением новой записи
+   */
   toggleModal(){
     this.showModal = !this.showModal;
   }
-  addArticle(newArticle : ArticleItem){
-    this.articlesList = this._articlesService.AddArticle(newArticle);
+
+  /**
+   * addArticle берет данные полей из формы добавления новой статьи и вызывает функцию добавления новой статьи
+   */
+  addArticle(){
+    this.articlesList = this._articlesService.addArticle({
+      title: this.newArticle.title,
+      content: this.newArticle.content,
+    });
     this.showModal = false;
-    this.newArticle = {title:"",content:""};
+    this.newArticle = { title: '', content: '' };
   }
-  onSelect(index : number){
+
+  /**
+   * onSelect редиректит на выбранную статью
+   * @param index - индекс статьи
+   */
+  onSelect(index: number){
     this._router.navigate(['/detail',index]);
-  }
-  ngOnInit(): void {
-    this.newArticle = {title:"",content:""};
-    this.articlesList = this._articlesService.GetArticles();
   }
 
 }

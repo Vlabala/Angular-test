@@ -3,35 +3,38 @@
   padding: 50px 100px;
   box-sizing: border-box;
 }
-h1{
+.blog__h1{
   text-align: center;
 }
-.pagedata{
+.blog__pagedata{
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
 }
-.elementsHolder{
+.blog__elementsHolder{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   order:1;
   gap: 15px;
 }
-.element {
+.blog__element {
   display: flex;
   flex-basis: 30%;
+  max-width: 30%;
   flex-direction: column;
   align-items: center;
   gap:10px;
 }
 
-.element .title {
+.blog__element .blog__title {
   font-weight: bold;
+  overflow: hidden;
+  max-width: 100%;
 }
 
-.element .content {
+.blog__element .blog__content {
   background: white;
   padding: 5px 15px;
   border: 2px solid black;
@@ -42,17 +45,17 @@ h1{
   box-sizing: border-box;
   overflow: hidden;
 }
-.element .goTo {
+.blog__element .blog__goTo {
   background: #a19f9f;
   width: 100%;
   text-align: center;
   border-radius: 10px;
 }
-.addHolder{
+.blog__addHolder{
   order:2;
   text-align: right;
 }
-::ng-deep .add {
+.blog__add {
   display: inline-block;
   padding: 15px 25px;
   background: #a19f9f;
