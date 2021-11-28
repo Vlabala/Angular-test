@@ -25,9 +25,13 @@ export class ArticleDetailComponent implements OnInit {
     this._route.navigate(['/']);
   }
   onDelete(index : number){
-    this._articlesService.deleteArticle(this.index);
+    if(confirm("Удалить статью '"+this.article.title+"'?")){
+      this._articlesService.deleteArticle(this.index);
+      this._route.navigate(['/']);
+    }
   }
   onSave(article:ArticleItem,index : number){
     this._articlesService.changeArticle(this.article,this.index);
+    this._route.navigate(['/']);
   }
 }
