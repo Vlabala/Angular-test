@@ -36,12 +36,14 @@ export class ListComponentComponent implements OnInit {
    * addArticle берет данные полей из формы добавления новой статьи и вызывает функцию добавления новой статьи
    */
   addArticle(){
-    this.articlesList = this._articlesService.addArticle({
+    let added = this._articlesService.addArticle({
       title: this.newArticle.title,
       content: this.newArticle.content,
     });
-    this.showModal = false;
-    this.newArticle = { title: '', content: '' };
+    if(added){
+      this.showModal = false;
+      this.newArticle = { title: '', content: '' };
+    }
   }
 
   /**

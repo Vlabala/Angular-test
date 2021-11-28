@@ -30,6 +30,7 @@
 
 .blog__element .blog__title {
   font-weight: bold;
+  white-space: nowrap;
   overflow: hidden;
   max-width: 100%;
 }

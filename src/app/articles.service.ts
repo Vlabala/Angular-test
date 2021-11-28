@@ -13,9 +13,12 @@ export class ArticlesService {
    * addArticle добавляет статью в массив статей
    * @param newArticle - объект статьи
    */
-  public addArticle(newArticle: ArticleItem): Array<ArticleItem>{
-    this.Articles.push(newArticle);
-    return this.Articles;
+  public addArticle(newArticle: ArticleItem): boolean{
+    if(newArticle.title && newArticle.content){
+      this.Articles.push(newArticle);
+      return true
+    }
+    return false
   }
 
   /**
