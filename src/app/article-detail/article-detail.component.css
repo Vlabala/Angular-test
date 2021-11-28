@@ -1,0 +1,25 @@
+.article_item{
+  height: 90vh;
+  padding: 50px 100px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.element .goTo {
+  background: #a19f9f;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+}
+.article_item__buttons{
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+.article_item__button {
+  display: inline-block;
+  padding: 15px 25px;
+  cursor:pointer;
+  background: #a19f9f;
+}

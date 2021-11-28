@@ -1,0 +1,10 @@
+<div class="article_item">
+  <div class="article_item__back" (click)="onGoBack()">Назад</div>
+  <h1>Запись "{{article.title}}"</h1>
+  <input type="text" [(ngModel)]="article.title">
+  <textarea cols="30" rows="10" [(ngModel)]="article.content"></textarea>
+  <div class="article_item__buttons">
+    <div class="article_item__button" (click)="onDelete(this.index)">Удалить</div>
+    <div class="article_item__button" (click)="onSave(this.article,this.index)">Сохранить</div>
+  </div>
+</div>

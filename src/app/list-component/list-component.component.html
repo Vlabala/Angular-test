@@ -1,0 +1,28 @@
+<div class="blog">
+  <h1>Блог</h1>
+  <div class="pagedata">
+    <div class="addHolder">
+      <app-button [class]="'add'" [clickEvent]="toggleModal">Добавить</app-button>
+      <div class="add" (click)="toggleModal()">Добавить</div>
+    </div>
+    <div class="elementsHolder" >
+      <div class="element" *ngFor="let article of articlesList; index as i;">
+        <div class="title">{{article.title}}</div>
+        <div class="content">{{article.content}}</div>
+        <div class="goTo" (click)="onSelect(i)">Перейти</div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal [shown]="this.showModal">
+  <div class="add_form">
+    <label for="title">Заголовок </label>
+    <input [(ngModel)]="newArticle.title" type="text" id="title" class="add_form__input">
+    <label for="content">Текст</label>
+    <textarea rows="10" id="content" [(ngModel)]="newArticle.content" class="add_form__textarea"></textarea>
+    <div class="add_form__buttons_holder">
+      <div class="add_form__button cancel" (click)="toggleModal()">Отмена</div>
+      <div class="add_form__button save" (click)="addArticle(this.newArticle)">Сохранить</div>
+    </div>
+  </div>
+</app-modal>
